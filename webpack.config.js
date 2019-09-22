@@ -1,6 +1,8 @@
 const path = require('path'); // Модуль
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Модуль
 
+// https://tocode.ru/curses/nastroika-webpack4
+
 //console.log(__dirname);
 //console.log(path.resolve(__dirname, 'path'));
 
