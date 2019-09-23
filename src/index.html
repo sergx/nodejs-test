@@ -9,12 +9,19 @@
   <link rel="stylesheet" href="/assets/css/app.css">
   <script src="/assets/js/app.js"></script>
   -->
-  <title>Webpack Template</title>
+  <!-- https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs -->
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
+  <% } %>
+  <title><%= htmlWebpackPlugin.options.title || 'Empty title' %></title>
 </head>
 <body>
   <div id="app">
     asdf
     <example-component></example-component>
   </div>
+  <% for (var js in htmlWebpackPlugin.files.js) { %>
+    <script src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
+  <% } %>
 </body>
 </html>
