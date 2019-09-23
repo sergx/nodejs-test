@@ -4,6 +4,6 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   plugins: []
 });
- module.export = new Promise((resolve, reject) => {
+ module.exports = new Promise((resolve, reject) => {
    resolve(buildWebpackConfig);
  });

@@ -25,7 +25,7 @@ new webpack.SourceMapDevToolPlugin({
 module.exports = new Promise((resolve, reject) => {
 resolve(devWebpackConfig)
 })
-/***********/
+/**********/
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');

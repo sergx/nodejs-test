@@ -3,6 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Модуль
 
 // https://tocode.ru/curses/nastroika-webpack4
 
+// see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
+const PATHS = {
+  src: path.join(__dirname, '../src'),
+  dist: path.join(__dirname, '../dist'),
+  assets: 'assets/'
+}
+
 //console.log(__dirname);
 //console.log(path.resolve(__dirname, 'path'));
 
@@ -13,8 +20,8 @@ module.exports = {
 	},
 	output:{ // точки выхода
 		filename: '[name].js', //  Квадратные скобки означают, что берется файл с имеем точки входа https://youtu.be/JcKRovPhGo8?t=916
-		path: path.resolve(__dirname, './path'), // папка назначения скомпилированных файлов https://nodejs.org/api/path.html#path_path_relative_from_to
-		publicPath: './dist' // Папка, которая отображается, может отличаться от реальной папки
+		path: path.resolve(__dirname, './dist'), // папка назначения скомпилированных файлов https://nodejs.org/api/path.html#path_path_relative_from_to
+		publicPath: '/dist' // Папка, которая отображается, может отличаться от реальной папки
 	},
 	module:{ // Подключаемые модули
 		rules:[{

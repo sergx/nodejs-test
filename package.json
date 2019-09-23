@@ -21,7 +21,9 @@
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+      "fibers": "^4.0.1",
+      "sass": "^1.22.12"
   },
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.conf.js",
