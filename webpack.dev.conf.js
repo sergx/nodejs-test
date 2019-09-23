@@ -37,7 +37,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: 8081, // По-умолчанию 8080 https://youtu.be/QF3EcxymIcc?t=905
     overlay:{ // Чтобы выводить ошибки компил¤ции в браузер
       warnings: true,
-      errors: true
+      errors: true,
     }
   },
   plugins:[
