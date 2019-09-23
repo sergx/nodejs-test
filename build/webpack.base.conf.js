@@ -2,7 +2,7 @@ const path = require('path'); // Модуль
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Модуль
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const { VueLoaderPlugin } = require('vue-loader');
 // https://tocode.ru/curses/nastroika-webpack4
 
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
@@ -36,6 +36,14 @@ module.exports = {
 			//exclude: "/node_modules/" // не включаем те файлы, которые содержет эта папка
 			exclude: path.resolve(__dirname, "node_modules"),
 			//include: [path.resolve(__dirname, "src")]
+		},{
+			test: /\.vue$/,
+			loader: "vue-loader",
+      options:{
+        loader:{
+          scss: 'vue-style-loader!css-loader!sass-loader'
+        }
+      }
 		},{
 			test: /\.(png|jpg|jpeg|gif|svg)$/,
 			loader: "file-loader",
@@ -78,7 +86,13 @@ module.exports = {
 			]
 		}]
 	},
+  resolve:{
+    alias: {
+      'vue$': 'vue/dist/vue.js'
+    }
+  },
 	plugins: [
+    new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
 			filename: `${PATHS.assets}css/[name].css`,
 		}),
