@@ -9,9 +9,11 @@ import './scss/main.scss'
 //import 'bootstrap/dist/css/bootstrap.css' // Можно и css импортировать
 
 window.Vue = require('vue'); // Вроже вот так пишут
+import store  from './store/store.js';
 
 Vue.component('example-component', require('./components/Example.vue').default)
 
 const app = new Vue({
+  store: store,
   el: '#app'
 });
