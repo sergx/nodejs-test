@@ -8,26 +8,29 @@
     "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
+    "fibers": "^4.0.1",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "npm-git-install": "^0.3.0",
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
+    "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
-    "webpack-merge": "^4.2.2",
-      "fibers": "^4.0.1",
-      "sass": "^1.22.12"
+    "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.conf.js",
-    "build": "webpack --config webpack.build.conf.js"
+    "dev": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
+    "build": "webpack --config ./build/webpack.build.conf.js"
   },
   "browserslist": [
     "> 1%",
