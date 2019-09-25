@@ -49,17 +49,17 @@ module.exports = {
 	},
 	module: { // Подключаемые модули
 		rules: [{
-			test: /\.js$/,
-			loader: "babel-loader",
-			exclude: "/node_modules/", // не включаем те файлы, которые содержет эта папка
-			//exclude: path.resolve(__dirname, "node_modules"),
-			//include: [ /src\/js/ /*path.resolve(__dirname, "src/js")*/]
-		},{
-			test: /\.pug$/,
-			loader: "pug-loader",
-			//exclude: path.resolve(__dirname, "node_modules"),
-			//include: [ /src\/js/ /*path.resolve(__dirname, "src/js")*/]
-		}, {
+				test: /\.js$/,
+				loader: "babel-loader",
+				exclude: "/node_modules/", // не включаем те файлы, которые содержет эта папка
+				//exclude: path.resolve(__dirname, "node_modules"),
+				//include: [ /src\/js/ /*path.resolve(__dirname, "src/js")*/]
+			}, {
+				test: /\.pug$/,
+				loader: "pug-loader",
+				//exclude: path.resolve(__dirname, "node_modules"),
+				//include: [ /src\/js/ /*path.resolve(__dirname, "src/js")*/]
+			}, {
 				test: /\.vue$/,
 				loader: "vue-loader",
 				options: {
@@ -69,6 +69,12 @@ module.exports = {
 				}
 			}, {
 				test: /\.(png|jpg|jpeg|gif|svg)$/,
+				loader: "file-loader",
+				options: {
+					name: '[name].[ext]'
+				}
+			}, {
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 				loader: "file-loader",
 				options: {
 					name: '[name].[ext]'
@@ -90,7 +96,7 @@ module.exports = {
 						options: {
 							sourceMap: true,
 							config: {
-								path: `${PATHS.src}/js/postcss.config.js`
+								path: `./js/postcss.config.js`
 							}
 						}
 					},
@@ -118,7 +124,7 @@ module.exports = {
 						options: {
 							sourceMap: true,
 							config: {
-								path: `${PATHS.src}/js/postcss.config.js`
+								path: `./js/postcss.config.js`
 							}
 						}
 					},
@@ -128,13 +134,14 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
+			'~': 'src',
 			'vue$': 'vue/dist/vue.js'
 		}
 	},
 	plugins: [
 		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
-			filename: `${PATHS.assets}css/[name].[hash].css`,
+			filename: `${PATHS.assets}css/[name].css?h=[hash]`,
 		}),
 		//		new HtmlWebpackPlugin({
 		//			template: `${PATHS.src}/index.html`,
@@ -152,8 +159,12 @@ module.exports = {
 			filename: `./${page.replace(/\.pug/, '.html')}`, //.pug to .html
 		})),
 		new CopyWebpackPlugin([{
-				from: `${PATHS.src}/img`,
+				from: `${PATHS.src}/${PATHS.assets}img`,
 				to: `${PATHS.assets}img`
+			},
+			{
+				from: `${PATHS.src}/${PATHS.assets}fonts`,
+				to: `${PATHS.assets}fonts`
 			},
 			{
 				from: `${PATHS.src}/static`,
